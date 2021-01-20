@@ -1,0 +1,33 @@
+\documentclass[../main.tex]{subfiles}
+\setlength{\parskip}{0em}
+
+\begin{document}
+
+$H(p_1, p_2, .., p_k) < H(q_1, q_2, .., q_k)$
+
+Исходя из $q_i = p_i, i=\overline{(3,l)}$,  неравенство принимает вид: $H(p_1, p_2, .., p_k) < H(q_1, q_2, p_3 .., p_k)$, применим свойство энтропии, чтобы свести задачу к менее емкой. 
+
+$H(p_3,.., p_k, p_1 + p_2) + (p_1+p_2)*H(\frac{p_1}{p_1+p_2}, \frac{p_2}{p_1+p_2}) < H(p_3,.., p_k, q_1 + q_2) + (q_1+q_2)*H(\frac{q_1}{q_1+q_2}, \frac{q_2}{q_1+q_2})$
+
+Однако нам известно, что $q_1 = p_1 + \varepsilon$, и $q_2 = p_2 - \varepsilon$, но тогда $q_1+q_2=p_1+p_2$ => \newline
+$=> (p_1+p_2)*H(\frac{p_1}{p_1+p_2},\frac{p_1}{p_1+p_2}) < (p_1+p_2)*H(\frac{q_1}{p_1+p_2}, \frac{q_2}{p_1+p_2})$ =>
+$H(\frac{p_1}{p_1+p_2}, \frac{p_2}{p_1+p_2}) < H(\frac{q_1}{p_1+p_2}, \frac{q_2}{p_1+p_2})$
+
+$H(p_1, p_2)<H(p_1+\varepsilon, p_2-\varepsilon)$ (от $\frac{1}{p_1+p_2}$ можно раскрытием энтропий и взаимным уничтожением соответствующих чисел, мне лень все это перепечатывать)
+
+Есть два пути док-ва, но первое может с некторой вероятностью не принять, из-за его недостаточной строгости.
+
+\textbf{1)} Рассмотрим $H(p_1, p_2)<H(p_1+\varepsilon, p_2-\varepsilon)$. Так как $p_1<p_2$, то в функции $H(p_1+\varepsilon, p_2-\varepsilon), \newline
+\varepsilon$ - выполняет роль <<уравнителя>>, то есть он приближает аргументы функции энтропии друг к другу $\Rightarrow$ значение функции энтропии возрастает $\Rightarrow$ наше неравнство верно.
+
+\textbf{2)} Проанализируем неравенство $\varepsilon \leq \frac{p_2-p_1}{2}$. Если мы берем величины $\varepsilon$ меньшие чем $\frac{p_2-p_1}{2}$, исходя из $p_1 < p_2$, то при $\lim\limits_{\varepsilon \rightarrow 0}$ аргументы энтропии будут сходитьтся к $p_1, p_2$. Иначе говоря, нам достаточно рассмотреть $\lim\limits_{\varepsilon \rightarrow 0}$ в неравенстве, чтобы его доказать. 
+
+Теперь рассмотрим наше исходное неравенство в пределах, и раскроем энтропии.
+
+$$p_1log(p_1) + p_2log(p_2) > \lim\limits_{\varepsilon\rightarrow 0}(p_1log(p_1+\varepsilon) + p_2log(p_1-\varepsilon) + \varepsilon log(p_1+\varepsilon) - \varepsilon log(p_2-\varepsilon))$$
+$$\lim\limits_{\varepsilon\rightarrow 0}(\varepsilon*(log(p_1+\varepsilon) -log(p_2-\varepsilon)))<0$$
+$$(log(p_1)-log(p_2))\lim\limits_{\varepsilon\rightarrow 0}\varepsilon<0$$
+
+Т.к.\ $p_1<p_2$, то $log(p_1)-log(p_2) <0$, а значит неравенство выполняется.
+
+\end{document}

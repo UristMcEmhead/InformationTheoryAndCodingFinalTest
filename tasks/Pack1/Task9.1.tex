@@ -1,0 +1,52 @@
+\documentclass[../main.tex]{subfiles}
+\setlength{\parskip}{0em}
+
+\begin{document}
+Пропускная способность равна $\sup{\{I(X;Y)\}} = \sup\{H(Y)-H(Y|X)\} =\sup\{H(Y)\} - \newline H(1-\alpha-\beta - \gamma, \alpha, \beta, \gamma)$, так как величина H(Y|X) зависит только от характеристик канала)
+
+Найдем $\sup\{H(Y)\}$. $H(Y)$ согласно теореме о максимальном значении энтропии, $H(Y)$ будет максимально, при равных вероятностях. Иначе говоря, $\overline{p_{0}}(y)=(0.25,0.25,0.25,0.25)$. 
+
+Проверим существование такого канала. Для этого решим систему уравнений, состоящую из уравнений полных вероятностей для $p(y)$. 
+
+\begin{center}
+    \begin{equation}
+    \left\{
+    \begin{array}{ll}
+    p(y_1)  = p(y_1|x_1)*p(x_1) + p(y_1|x_2)*p(x_2)\\
+    p(y_2)  = p(y_2|x_1)*p(x_1) + p(y_2|x_2)*p(x_2)\\
+    p(y_3)  = p(y_3|x_1)*p(x_1) + p(y_3|x_2)*p(x_2)\\
+    p(y_4)  = p(y_4|x_1)*p(x_1) + p(y_4|x_2)*p(x_2)\\
+    p(x_1) + p(x_2) =1
+    \end{array}
+    \right.
+\end{equation}
+
+\begin{equation}
+    \left\{
+    \begin{array}{ll}
+    p(y_1)  = (1-\alpha-\beta - \gamma)p(x_1) + \beta p(x_2)\\
+    p(y_2)  = \alpha\\
+    p(y_3)  = \beta p(x_1) + (1-\alpha-\beta - \gamma)p(x_2)\\
+    p(y_4)  = \gamma\\
+    p(x_1) + p(x_2) =1
+    \end{array}
+    \right.
+\end{equation}
+\end{center}
+
+
+Как мы видим, вероятности $p(y_2); p(y_4)$ напрямую зависят от характеристик канала, и являются фиксированными величинами. Рассмотрим $H(Y)$
+
+$H(Y) = H(p(y_1),\ p(y_3),\alpha, \gamma) = H(\alpha, \gamma, p(y_1) + p(y_3)) + (p(y_1) + p(y_3))*H(\frac{p(y_1)}{p(y_1) + p(y_3)}, \frac{p(y_3)}{p(y_1) + p(y_3)})$
+
+Однако, из системы, мы знаем, что $p(y_1) + p(y_3) = 1-\alpha-\gamma$, тогда наша энтропия примет вид
+
+$H(\alpha, \gamma, 1-\alpha-\gamma) + (1-\alpha-\gamma)*H(\frac{p(y_1)}{1-\alpha-\gamma}, \frac{p(y_3)}{1-\alpha-\gamma})$ \newline
+$H(\alpha, \gamma, 1-\alpha-\gamma); (1-\alpha-\gamma)$ - не зависят от вероятностей на выходе, а значит, нам достаточно максимизировать $H(\frac{p(y_1)}{1-\alpha-\gamma}, \frac{p(y_3)}{1-\alpha-\gamma})$
+
+Согласно теореме о максимальном значении энтропии, $p(y_1) = p(y_3)$, причем, $\sum\limits_{i}^{n}p(y_i)=1;$\newline
+$\alpha + \gamma + 2p(y_1) =1 \Rightarrow p(y_1) = p(y_3) = \frac{1-\alpha-\gamma}{2}$
+
+Теперь найдем пропускную способность= $H(\alpha, \gamma, \frac{1-\alpha-\gamma}{2}, \frac{1-\alpha-\gamma}{2}) - H(1-\alpha-\beta - \gamma, \alpha, \beta, \gamma) = \newline =H(\frac{1-\alpha-\gamma}{2},\frac{1-\alpha-\gamma}{2}, 1-\alpha-\beta - \gamma, \beta)$
+\end{document}
+

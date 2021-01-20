@@ -1,0 +1,22 @@
+\documentclass[../main.tex]{subfiles}
+\setlength{\parskip}{0em}
+
+\begin{document}
+$<X, \{p(x)|x \in X\}>, <Y, \{p(y)|y \in Y\}>$
+
+$\varphi: X \rightarrow Y \Leftrightarrow I(X,Y) = H(Y)$
+
+$\Rightarrow$
+
+\noindent Пусть $\exists \varphi : X \rightarrow Y$, что $\forall x \in X, \ \exists y \in Y \Rightarrow Y \in X$
+Но тогда $I(X;Y) = H(Y)-H(Y|X)=H(Y)-H(X|X)$ \newline
+Однако $H(X|X) = \sum\limits_{x \in X} p(x|x)log(p(x|x))$ 
+$p(x|x) = 1 => log(p(x|x))=0\ \forall x \in X =>$ $\sum\limits_{x \in X} p(x|x)log(p(x|x)) = 0$ \newline
+Тогда $I(X;Y) = H(Y)$
+
+$\Leftarrow$ 
+
+\noindent Пусть $I(X;Y) = H(Y)$. $I(X;Y) = H(Y) - H(Y|X) \Rightarrow H(Y|X) = 0$ \newline
+Тогда $H(X;Y) = H(Y|X) + H(X) \Rightarrow H(X;Y) = H(X) \Rightarrow \exists \varphi :X\rightarrow Y$
+\end{document}
+

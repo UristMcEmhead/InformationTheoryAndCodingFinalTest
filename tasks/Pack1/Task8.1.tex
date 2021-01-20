@@ -1,0 +1,11 @@
+\documentclass[../main.tex]{subfiles}
+\setlength{\parskip}{0em}
+
+\begin{document}
+\newcommand{\indep}{\perp \!\!\! \perp}
+$p(x,y,z) = p(x)*p(y,z)$. Доказать, что в таком случае $I(Y;Z|X) = I(Y;Z)$
+
+$p(xyz)=p(x)*p(yz) \Rightarrow X \indep YZ \Rightarrow X \indep Y; X \indep Z$
+
+$I(Y; Z|X) = H(Y) - H(Y|(Z|X))$ Но $Z \indep X \Rightarrow Z|X = Z \Rightarrow I(Y; Z|X) = H(Y) - H(Y|Z)$ Ч.Т.Д.
+\end{document}
