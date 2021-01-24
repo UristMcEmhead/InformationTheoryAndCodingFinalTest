@@ -45,7 +45,9 @@ $H(\alpha, \gamma, 1-\alpha-\gamma) + (1-\alpha-\gamma)*H(\frac{p(y_1)}{1-\alpha
 $H(\alpha, \gamma, 1-\alpha-\gamma); (1-\alpha-\gamma)$ - не зависят от вероятностей на выходе, а значит, нам достаточно максимизировать $H(\frac{p(y_1)}{1-\alpha-\gamma}, \frac{p(y_3)}{1-\alpha-\gamma})$
 
 Согласно теореме о максимальном значении энтропии, $p(y_1) = p(y_3)$, причем, $\sum\limits_{i}^{n}p(y_i)=1;$\newline
-$\alpha + \gamma + 2p(y_1) =1 \Rightarrow p(y_1) = p(y_3) = \frac{1-\alpha-\gamma}{2}$
+$\alpha + \gamma + 2p(y_1) =1 \Rightarrow p(y_1) = p(y_3) = \frac{1-\alpha-\gamma}{2}$ 
+
+Для данных значений $y_1; y_3$ существует решение системы, $p(x_2)=p(x_1)=1/2$ (расписывать не буду, решается элементарно), а значит канал с заданными выходными параметрами существует.
 
 Теперь найдем пропускную способность= $H(\alpha, \gamma, \frac{1-\alpha-\gamma}{2}, \frac{1-\alpha-\gamma}{2}) - H(1-\alpha-\beta - \gamma, \alpha, \beta, \gamma) = \newline =H(\frac{1-\alpha-\gamma}{2},\frac{1-\alpha-\gamma}{2}, 1-\alpha-\beta - \gamma, \beta)$
 \end{document}
