@@ -3,16 +3,13 @@
 
 \begin{document}
 
-Насколько я понял функция уже в виде полинома Жегалкина, и упростить её не получится. Так что F тому, кому попалось задание
+$x_1x_2x_3..x_{2n}=1$ тогда и только тогда, когда $x_1=x_2=..=x_{2n}=1$, а $\overline{x}_1\overline{x}_2..\overline{x}_{2n}=1$, тогда и только тогда, когда $x_1=x_2..=x_{2n}=0$. 
 
-% $f(x_1,x_2,..,x_{2n}) = x_1x_2x_3..x_{2n} \oplus x_1\overline{x}_2x_3\overline{x}_4..\overline{x}_{2n} \oplus \overline{x}_1\overline{x}_2\overline{x}_3..\overline{x}_{2n}$ \newline
-% Т.к. операция $\oplus$ коммутативна, рассмотрим $x_1x_2x_3..x_{2n} \oplus \overline{x}_1\overline{x}_2\overline{x}_3..\overline{x}_{2n}$
-% $$x_1x_2x_3..x_{2n} \oplus \overline{x}_1\overline{x}_2\overline{x}_3..\overline{x}_{2n} = 
-% (x_1x_2x_3..x_{2n} \vee \overline{x}_1\overline{x}_2\overline{x}_3..\overline{x}_{2n}) \wedge (\overline{x_1x_2x_3..x_{2n}} \vee (\overline{\overline{x}_1\overline{x}_2\overline{x}_3..\overline{x}_{2n}})$$
+Таким образом, мы можем утверждать, что $x_1x_2x_3..x_{2n} \oplus x_1=x_2..=x_{2n} = 1$, тогда и только тогда, когда либо все аргументы равны 1, либо, когда все аргументы равны 0.
 
-% 1)$(\overline{x_1x_2x_3..x_{2n}} \vee (\overline{\overline{x}_1\overline{x}_2\overline{x}_3..\overline{x}_{2n}}) 
-% = \overline{x}_{1} \vee \overline{x}_{2} \vee \overline{x}_{3} \vee ..\vee \overline{x}_{2n} \vee x_1 \vee x_2 \vee x_3 \vee .. \vee x_{2n} = 1$
+Рассмотрим $x_1\overline{x_2}x_3..\overline{x}_{2n}$. Данная функция равна 1 тогда и только тогда, когда $x_1=x_3=..=x_{2n-1}=1$, $x_2x_4x_{2n}=0$
 
-% 2)$$
+Таким образом, наша характеристическая функция равна 1 в трех случаях. Когда Все аргументы равны 1, когда все аргументы равны 0, и когда все аргументы чередуются 1010..0. Но тогда очевидно, что метрика Хэмминга равна $n=d_{min}$ (сравнивать вариант со всеми нулями и всеми единицами нет смысла, так как есть вариант с меньшей метрикой). 
 
+Значит код обнаруживает $d_{min}-1=n-1$ ошибок, а исправляет $\frac{d_{min}-1}{2}$
 \end{document}

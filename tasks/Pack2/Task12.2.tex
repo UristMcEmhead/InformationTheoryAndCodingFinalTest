@@ -1,0 +1,103 @@
+\documentclass[../main.tex]{subfiles}
+\setlength{\parskip}{0em}
+
+\begin{document}
+
+\noindent
+$k = 3;\ n = 6;\ GF(2)$ 
+
+\noindent
+$
+x_1=u_1\newline
+x_2=u_2\newline
+x_3=u_3\newline
+x_4=x_1\oplus x_3\newline
+x_5=x_2\oplus x_1\newline
+x_6=x_1\oplus x_2\oplus x_3
+$
+
+Построим порождающую матрицу. 
+
+Это расписывать необязательно - написано для понимания:
+\begin{enumerate}
+    \item $k = 3$, то есть мы получаем 3 линейно независимых строки.
+    \item $x_1=u_1$, тогда первый столбец матрицы имеет вид $100$
+    \item $x_2=u_2$, тогда второй столбец матрицы имеет вид $010$
+    \item $x_3=u_3$, тогда третий столбец матрицы имеет вид $001$
+    \item $x_4=x_1\oplus x_3$,\ тогда четвертый столбец матрицы имеет вид $101$
+    \item $x_5=x_2\oplus x_1$,\ тогда пятый столбец матрицы имеет вид $110$ 
+    \item $x_6=x_1\oplus x_2\oplus x_3$,\ тогда четвертый столбец матрицы имеет вид $111$
+\end{enumerate}
+
+\begin{equation*}
+    G = \left( 
+    \begin{array}{cccccc}
+         100111  \\
+         010011  \\
+         001101
+    \end{array}
+    \right)
+\end{equation*} 
+
+По виду матрицы - видим, что код систематический. 
+\begin{equation*}
+    G_1 = \left( 
+    \begin{array}{ccc}
+         111  \\
+         011  \\
+         101
+    \end{array}
+    \right)
+\end{equation*} 
+
+Построим проверочную матрицу. \newline
+$H=[-G^{T}_{1},I_{n-k}]$, где через $G^{T}_{1}$ -обозначена транспонированная матрица для $G_1$
+
+\begin{equation*}
+    H = \left( 
+    \begin{array}{cccccc}
+         101100  \\
+         110010  \\
+         111001
+    \end{array}
+    \right)
+\end{equation*} 
+
+Тогда 
+
+\begin{equation*}
+    H^T = \left( 
+    \begin{array}{ccc}
+         111 \\
+         011 \\
+         101 \\
+         100 \\
+         010 \\
+         001
+    \end{array}
+    \right)
+\end{equation*} 
+
+Посторим таблицу синдромов
+
+\begin{center}
+    \begin{tabular}{|c|c|}
+    \hline
+     001 & 000001\\ 
+     010 & 000010\\ 
+     011 & 010000\\ 
+     100 & 000100\\ 
+     101 & 001000\\ 
+     110 & 000110\\ 
+     111 & 100000\\\hline
+\end{tabular}
+\end{center}
+
+Проверим работу алгоритма. \newline $\overline{y}=110111$ \newline
+$\overline{y}H^T=011\ \overline{x}=110111 \oplus 010000 = 100111 $
+
+Из таблицы видно, что код исправляет 6 одиночных ошибок, и 1 двойную ошибку. Вычислим вероятность ошибки декодирования для ДСК:
+
+$p_\varepsilon=1-(1-p)^6 - 6p(1-p)^5 - p^2(1-p)^4$
+
+\end{document}
